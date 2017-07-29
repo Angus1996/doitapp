@@ -1,0 +1,16 @@
+page-personal {
+  .scroll-content{
+    overflow:hidden;
+  }
+  .card{
+    width: 86%;
+    height: 86%;
+    margin-left: 7%;
+  }
+  .personalbg{
+    position: relative;
+    background: url('../assets/image/user.jpg') repeat transparent;
+    height: 60%;
+    background-size: 100%;
+  }
+}

@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>任务详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>任务名称</ion-label>
+            <ion-input type="text" [(ngModel)]="task.name" placeholder="添加任务名称" clearInput></ion-input>     
+        </ion-item>   
+        <ion-item>
+            <ion-label>任务正文</ion-label>
+            <ion-input type="text" [(ngModel)]="task.content" placeholder="添加任务正文" clearInput></ion-input>
+        </ion-item>
+        <ion-item>    
+            <label>创建时间: </label>{{ task.createDate }} 
+        </ion-item>
+        <ion-item>    
+            <label>创建人: </label>{{ task.createUserName }}
+        </ion-item>
+        <ion-item>    
+            <label>项目名称: </label>{{ getprojectName() }}
+        </ion-item>
+        <ion-item>    
+            <ion-label>责任人: </ion-label>
+            <ion-select [(ngModel)]="task.dutyEmployeeId" interface="alert" okText="确认" cancelText="取消">
+                <ion-option *ngFor="let employee of employees" value="{{employee.employeeId}}">{{employee.employeeName}}</ion-option>
+            </ion-select>
+        </ion-item> 
+        <ion-item>
+            <label>修改时间:</label>{{ task.modifyDate }}
+        </ion-item> 
+        <ion-item>
+            <label>修改人：:</label>{{ task.modifyUserName }}
+        </ion-item>
+        <ion-item>
+            <label>添加人：:</label>{{ task.addEmployeeName }}
+        </ion-item>
+        <ion-item>
+            <label>开始日期</label>{{ task.startDate }}
+        </ion-item>
+        <ion-item>
+            <ion-label>开始日期设置</ion-label>
+            <ion-datetime min="{{ getCurrentDate() }}" doneText="确认" cancelText="取消" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="task.startDate" ></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <label>预计完成日期</label>{{ task.forecastDate }}
+        </ion-item>
+        <ion-item>
+            <ion-label>预计完成日期设置</ion-label>
+            <ion-datetime min="{{ getCurrentDate() }}" doneText="确认" cancelText="取消" displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" [(ngModel)]="task.forecastDate" ></ion-datetime>
+        </ion-item>        
+        <ion-item>
+            <ion-label>重要级别</ion-label>
+            <ion-select [(ngModel)]="task.level" multiple="false" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="important">重要</ion-option>
+                <ion-option value="urgency">紧急</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>是否提醒</ion-label>
+            <ion-select [(ngModel)]="task.isNotice" multiple="false" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="0">YES</ion-option>
+                <ion-option value="1">NO</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>    
+            <ion-label>任务状态: </ion-label>
+            <ion-select [(ngModel)]="task.taskStatus" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="plan">计划中</ion-option>
+                <ion-option value="finish">已完成</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>    
+            <ion-label>任务类型: </ion-label>
+            <ion-select [(ngModel)]="task.taskType" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="demand">需求</ion-option>
+                <ion-option value="demandBug">需求返工</ion-option>
+                <ion-option value="bug">bug</ion-option>
+                <ion-option value="bug1">返工bug</ion-option>
+                <ion-option value="meeting">会议</ion-option>
+                <ion-option value="demandCom">需求沟通</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>    
+            <ion-label>预计用时: </ion-label>
+            <ion-select [(ngModel)]="task.forecastDay" interface="alert" okText="确认" cancelText="取消">
+                <ion-option value="1">1</ion-option>
+                <ion-option value="1.5">1.5</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="2.5">2.5</ion-option>
+                <ion-option value="3">3</ion-option>
+                <ion-option value="3.5">3.5</ion-option>
+                <ion-option value="4">4</ion-option>
+                <ion-option value="4.5">4.5</ion-option>
+                <ion-option value="5">5</ion-option>
+                <ion-option value="5.5">5.5</ion-option>
+                <ion-option value="6">6</ion-option>
+                <ion-option value="6.5">6.5</ion-option>
+                <ion-option value="7">7</ion-option>
+                <ion-option value="7.5">7.5</ion-option>
+                <ion-option value="8">8</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>小类型: </ion-label>
+            <ion-input type="text" [(ngModel)]="task.littleCategory" placeholder="添加小类型" clearInput></ion-input>     
+        </ion-item>
+        <ion-item>
+            <ion-label>大类型: </ion-label>
+            <ion-input type="text" [(ngModel)]="task.largeCategory" placeholder="添加大类型" clearInput></ion-input>     
+        </ion-item>
+        <ion-item>
+            <ion-label>子类别: </ion-label>
+            <ion-input type="text" [(ngModel)]="task.subCategory" placeholder="添加子类别" clearInput></ion-input>     
+        </ion-item>
+        <ion-item>
+            <ion-label>是否删除</ion-label>
+            <ion-select [(ngModel)]="task.deleteMark" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="1">NO</ion-option>
+                <ion-option value="0">YES</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-fab right middle>
+        <button large ion-fab  color="transparent" (click)="modifyTodoTask()">保存</button>
+    </ion-fab>
+
+</ion-content>

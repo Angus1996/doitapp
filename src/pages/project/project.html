@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>项目列表</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="openNavDetailsPage(item)" icon-start>
+      <ion-icon ios="ios-list" md="md-list"></ion-icon>
+         {{ item.name }}
+    </button>
+    <ion-item>
+      更多项目有待开发... ...
+    </ion-item>
+  </ion-list>
+</ion-content>

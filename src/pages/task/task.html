@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      任务列表
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="add"></ion-icon>
+      </ion-label>
+        <ion-input type="text" [(ngModel)]="task.name" placeholder="快速添加任务" clearInput clearOnEdit></ion-input>
+    </ion-item>
+      <button ion-button round small (click)="addTodoTask()" color="primary" block>添加</button>
+    <ion-grid>
+      <ion-row text-center>
+        <ion-col col-4>
+          <div><button ion-button  small (click)="todayTask()" color="{{btn1color}}">今日待办</button></div>
+        </ion-col>
+        <ion-col col-4>
+          <div><button ion-button  small (click)="tommorowTask()" color="{{btn2color}}">明日待办</button></div>
+        </ion-col>
+        <ion-col col-4>
+          <div><button ion-button  small (click)="thisweekTask()"color="{{btn3color}}">本周待办</button></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item  *ngFor="let item of tasks">
+      <ion-label (click)="openTaskDetailsPage(item)">     
+        {{ item.name }}
+      </ion-label>
+      <ion-badge color="{{getBadgeColor(item)}}" (click)="update(item)" item-end>{{getFinish(item.taskStatus)}}</ion-badge>
+    </ion-item>     
+    <ion-item>
+      更多任务有待添加... ...
+    </ion-item>
+  </ion-list>
+
+  <ion-fab left bottom>
+    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-button color="primary" (click)="openProjectDetailsPage()">项目详情</button>
+      <button ion-button color="primary" (click)="openProjectUserPage()">参与员工</button>
+      <button ion-button color="primary" (click)="openAddTodoTaskMorePage()">添加任务</button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>参与员工</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content paddind>
+    <ion-list>
+        <button ion-item *ngFor="let item of items" (click)="openHisTask(item)" icon-start>
+        <ion-icon name="md-person"></ion-icon>
+            {{ item.employeeName }}
+        </button>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>项目详情</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let item of project">    
+            <label>项目名称: </label>{{item.name}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>创建日期: </label>{{item.createDate}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>创建人: </label>{{item.createUserName}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>数据库名: </label>{{item.databaseName}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>数据库端口: </label>{{item.databasePort}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>数据库密码: </label>{{item.databasePwd}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>数据库用户: </label>{{item.dbUsername}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>删除标记: </label>{{item.deleteMark}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>开发代号: </label>{{item.devCodeName}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>开发名称: </label>{{item.devName}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>开发语言: </label>{{item.devLang}}
+        </ion-item>
+        <ion-item *ngFor="let item of project">    
+            <label>服务器端口: </label>{{item.port}}
+        </ion-item>
+         <ion-item *ngFor="let item of project">    
+            <label>服务器IP: </label>{{item.serverIp}}
+        </ion-item>
+         <ion-item *ngFor="let item of project">    
+            <label>项目状态: </label>{{getitemStatus(item)}}
+        </ion-item>
+         <ion-item *ngFor="let item of project">    
+            <label>虚拟路径: </label>{{item.virtualPath}}
+        </ion-item>
+    </ion-list>
+</ion-content>

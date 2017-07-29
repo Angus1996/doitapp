@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>任务详情</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>    
+            <label>任务名称: </label> <h5>{{ task.name }}</h5>
+        </ion-item>
+        <ion-item>    
+            <label>任务正文: </label>{{ task.content }}
+        </ion-item>
+        <ion-item>    
+            <label>创建时间: </label>{{ task.createDate }}
+        </ion-item>
+        <ion-item>    
+            <label>创建人: </label>{{ task.createUserName }}
+        </ion-item>
+        <ion-item>    
+            <label>项目名称: </label>{{ getprojectName() }}
+        </ion-item>
+        <ion-item>    
+            <label>责任人: </label>{{ getdutyEmployeeName() }}
+        </ion-item>
+        <ion-item>    
+            <label>完成人: </label>{{ getfinishEmployeeName() }}
+        </ion-item>
+        <ion-item>    
+            <label>开始日期: </label>{{ task.startDate }}
+        </ion-item>
+        <ion-item>    
+            <label>预计完成日期: </label>{{ task.forecastDate }}
+        </ion-item>
+        <ion-item>
+            <label>实际完成日期：</label>{{ task.finishDate }}
+        </ion-item>
+        <ion-item>    
+            <label>重要级别: </label>{{ getTaskLevel() }}
+        </ion-item>
+        <ion-item>    
+            <label>任务状态: </label>{{ getTaskStatus() }}
+        </ion-item>
+        <ion-item>    
+            <label>任务类型: </label>{{ getTaskType() }}
+        </ion-item>
+        <ion-item>    
+            <label>预计用时: </label>{{ task.forecastDay }}
+        </ion-item>
+        <ion-item>    
+            <label>小类型: </label>{{ task.littleCategory }}
+        </ion-item>
+        <ion-item>    
+            <label>大类型: </label>{{ task.largeCategory }}
+        </ion-item>
+        <ion-item>    
+            <label>子类别: </label>{{ task.subCategory }}
+        </ion-item>
+    </ion-list>
+</ion-content>

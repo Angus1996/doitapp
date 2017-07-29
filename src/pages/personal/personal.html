@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      个人资料
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="action-sheets-basic-page">
+    <div class="personalbg"></div>
+    <h3>{{userName}}</h3>
+    <h4>武汉度益科技公司员工！</h4>
+    <ion-grid>
+        <ion-row text-center>
+            <ion-col>
+                <button ion-button round (click)="logout()">退出登录</button>
+            </ion-col>
+            <ion-col>
+                <button ion-button round (click)="modifyPwd()">修改密码</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid> 
+</ion-content>

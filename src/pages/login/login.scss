@@ -1,0 +1,37 @@
+login-page {
+    .scroll-content{
+    overflow:hidden;
+  }
+  .splash-bg {
+    position: relative;
+    background: url('../assets/image/splashbgr.jpg') no-repeat transparent;
+    height: 38%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    animation: animatedBackground 40s linear infinite;
+  }
+
+  @keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -64px;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    position: relative;
+    background: url('../assets/image/dylogo.png') repeat transparent;
+    background-size: 100%;
+    // margin-top: -64px;
+    width: 124px;
+    height: 135px;
+  }
+  .input-cover {
+    position: static;
+  } 
+}

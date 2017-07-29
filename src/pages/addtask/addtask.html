@@ -1,0 +1,58 @@
+ <ion-header>
+  <ion-navbar>
+    <ion-title>
+      添加任务...
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-label>任务</ion-label>
+            <ion-input type="text" [(ngModel)]="title" placeholder="添加任务名称" clearInput></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>责任人</ion-label>
+            <ion-select [(ngModel)]="dutyEmployeeId" multiple="false" interface="alert" okText="确认" cancelText="取消">
+                <ion-option *ngFor="let employee of employees" value="{{employee.employeeId}}">{{employee.employeeName}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>开始日期</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="date" min="{{ getCurrentDate() }}" doneText="确认" cancelText="取消" ></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>类型</ion-label>
+            <ion-select [(ngModel)]="type" interface="popover" okText="确认" cancelText="取消">
+                <ion-option value="demand">需求</ion-option>
+                <ion-option value="demandBug">需求返工</ion-option>
+                <ion-option value="bug">bug</ion-option>
+                <ion-option value="bug1">返工bug</ion-option>
+                <ion-option value="meeting">会议</ion-option>
+                <ion-option value="demandCom">需求沟通</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>预计用时</ion-label>
+            <ion-select [(ngModel)]="timeTake" interface="alert" okText="确认" cancelText="取消">
+                <ion-option value="1">1</ion-option>
+                <ion-option value="1.5">1.5</ion-option>
+                <ion-option value="2">2</ion-option>
+                <ion-option value="2.5">2.5</ion-option>
+                <ion-option value="3">3</ion-option>
+                <ion-option value="3.5">3.5</ion-option>
+                <ion-option value="4">4</ion-option>
+                <ion-option value="4.5">4.5</ion-option>
+                <ion-option value="5">5</ion-option>
+                <ion-option value="5.5">5.5</ion-option>
+                <ion-option value="6">6</ion-option>
+                <ion-option value="6.5">6.5</ion-option>
+                <ion-option value="7">7</ion-option>
+                <ion-option value="7.5">7.5</ion-option>
+                <ion-option value="8">8</ion-option>
+            </ion-select>
+        </ion-item>
+        <button ion-button (click)="addTodoTaskMore()" color="primary" block>添加</button>
+    </ion-list>
+</ion-content> 
